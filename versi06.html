@@ -24,8 +24,7 @@
                <a class="btn btn-danger" href="versi02.html" role="button">Retensi Keuangan</a>
                <a class="btn btn-primary" href="versi05.html" role="button">Retensi Kepegawaian</a>
                <a class="btn btn-danger" href="versi04.html" role="button">SKKAD</a>
-               <a class="btn btn-danger" href="versi07.html" role="button">Daftar Arsip</a>
-			   <a class="btn btn-danger" href="versi08.html" role="button">Daftar Arsip</a>
+              
                <hr/>
 
                 
@@ -83,20 +82,37 @@
                 <table id="data-table" class="table table-bordered" >
                      <thead>
                           <tr>
-                               <th style="text-align: center;">Kode</th>  
-                               <th style="text-align: center;">Klasifikasi</th> 
-                               <th style="text-align: center;">Sub Klasifikasi</th> 
-                               <th style="text-align: center;">Sub Sub Klasifikasi</th> 
-                               <th style="text-align: center;">Sub Sub Sub Klasifikasi</th> 
+                               <th style="text-align: center;">No Urut</th>  
+                               <th style="text-align: center;">Tahun Arsip</th> 
+                               <th style="text-align: center;">Tanggal</th> 
+                               <th style="text-align: center;">Uraian/th> 
+                               <th style="text-align: center;">Pencipta</th> 
+                               <th style="text-align: center;">Series Arsip</th> 
+                               <th style="text-align: center;">No. Rak</th> 
+                               <th style="text-align: center;">Lokasi Simpan</th> 
+                               <th style="text-align: center;">Ket</th> 
+                               <th style="text-align: center;">Jumlah</th> 
+                               <th style="text-align: center;">No Box</th> 
+                               <th style="text-align: center;">Retensi Aktif</th> 
+                               <th style="text-align: center;">Retensi Inaktif</th> 
+
                           </tr>
                      </thead>
                      <tfoot>
                           <tr>
-                              <th style="text-align: center;">Kode</th>  
-                              <th style="text-align: center;">Klasifikasi</th> 
-                              <th style="text-align: center;">Sub Klasifikasi</th> 
-                              <th style="text-align: center;">Sub Sub Klasifikasi</th> 
-                              <th style="text-align: center;">Sub Sub Sub Klasifikasi</th>
+                              <th style="text-align: center;">No Urut</th>  
+                               <th style="text-align: center;">Tahun Arsip</th> 
+                               <th style="text-align: center;">Tanggal</th> 
+                               <th style="text-align: center;">Uraian/th> 
+                               <th style="text-align: center;">Pencipta</th> 
+                               <th style="text-align: center;">Series Arsip</th> 
+                               <th style="text-align: center;">No. Rak</th> 
+                               <th style="text-align: center;">Lokasi Simpan</th> 
+                               <th style="text-align: center;">Ket</th> 
+                               <th style="text-align: center;">Jumlah</th> 
+                               <th style="text-align: center;">No Box</th> 
+                               <th style="text-align: center;">Retensi Aktif</th> 
+                               <th style="text-align: center;">Retensi Inaktif</th> 
                           </tr>
                      </tfoot>
                 </table>
@@ -136,16 +152,24 @@
                        'csvHtml5',
                        'pdfHtml5'
                    ],
-                  "ajax" : "klasifikasi.json",
+                  "ajax" : "darsip.json",
                   "language" : {
                               "url":"indonesia.json"
                             },
                   "columns":     [
-                       { "data": "Kode Klasifikasi" },
-                       { "data": "Klasifikasi" },
-                       { "data": "Sub Klasifikasi" },
-                       { "data": "Sub Sub Klasifikasi" },
-                       { "data": "Sub Sub Sub Klasifikasi" },
+                       { "data": "No_urut" },
+                       { "data": "Tahun_arsip" },
+                       { "data": "Tanggal" },
+                       { "data": "Kode_klasifikasi" },
+                       { "data": "Uraian" },
+                       { "data": "pencipta" },
+                       { "data": "series_arsip" },
+                       { "data": "Lokasi_simpan" },
+                       { "data": "ket" },
+                       { "data": "Jumlah" },
+                       { "data": "No_box" },
+                       { "data": "retensi_aktif" },
+                       { "data": "retensi_inaktif" },
                   ]
               } );
            });

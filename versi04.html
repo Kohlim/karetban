@@ -21,7 +21,7 @@
            <div class="container"> 
             <img src="karetban.png" class="img-responsive" alt="Responsive image">
             <hr>
-            <a class="btn btn-danger" href="index.html" role="button">Klasifikasi</a>
+            
             <a class="btn btn-danger" href="versi02.html" role="button">Retensi Keuangan</a>
             <a class="btn btn-primary" href="versi05.html" role="button">Retensi Kepegawaian</a>
             <a class="btn btn-danger" href="versi04.html" role="button">SKKAD</a>
@@ -81,16 +81,22 @@
                      <thead>  
                           <tr> 
                                <th></th>
-                               <th>Kode</th>  
-                               <th>Uraian</th> 
+                               <th style="text-align: center;">Kode</th>  
+                               <th style="text-align: center;">Klasifikasi</th> 
+                               <th style="text-align: center;">Sub Klasifikasi</th> 
+                               <th style="text-align: center;">Sub Sub Klasifikasi</th> 
+                               <th style="text-align: center;">Sub Sub Sub Klasifikasi</th> 
                                
                           </tr>  
                      </thead> 
                      <tfoot>  
                           <tr>
                                <th></th>
-                               <th>Kode</th>  
-                               <th>Uraian</th> 
+                               <th style="text-align: center;">Kode</th>  
+                               <th style="text-align: center;">Klasifikasi</th> 
+                               <th style="text-align: center;">Sub Klasifikasi</th> 
+                               <th style="text-align: center;">Sub Sub Klasifikasi</th> 
+                               <th style="text-align: center;">Sub Sub Sub Klasifikasi</th> 
                           </tr> 
                      </tfoot>  
                 </table>
@@ -115,23 +121,27 @@ function format ( d ) {
     // `d` is the original data object for the row
     return '<table class="table" cellpadding="0" cellspacing="0" border="0" style="padding-left:50px;">'+
         '<tr>'+
-            '<td>Aktif</td>'+
-            '<td>'+d.Aktif+'</td>'+
+            '<td>Klasifikasi Keamanan</td>'+
+            '<td>'+d.Keamanan+'</td>'+
         '</tr>'+
         '<tr>'+
-            '<td>Inaktif</td>'+
-            '<td>'+d.Inaktif+'</td>'+
+            '<td>Hak Akses</td>'+
+            '<td>'+d.Akses+'</td>'+
         '</tr>'+
         '<tr>'+
-            '<td>Retensi Penyusutan</td>'+
-            '<td>'+d.Keterangan+'</td>'+
+            '<td>Dasar Petimbangan</td>'+
+            '<td>'+d.Pertimbangan+'</td>'+
+        '</tr>'+
+        '<tr>'+
+            '<td>Unit Pengolah</td>'+
+            '<td>'+d.Pengolah+'</td>'+
         '</tr>'+
     '</table>';
 }
  
 $(document).ready(function() {
     var table = $('#data-table').DataTable( {
-        "ajax": "retensi.json",
+        "ajax": "skad.json",
         dom: 'Bfrtip',
           buttons: [
               'copyHtml5',
@@ -150,8 +160,10 @@ $(document).ready(function() {
                 "defaultContent": ''
             },
             { "data": "Kode" },
-            { "data": "Uraian" },
-           
+            { "data": "Klasifikasi" },
+            { "data": "Sub Klasifikasi" },
+            { "data": "Sub Sub Klasifikasi" },
+            { "data": "Sub Sub Sub Klasifikasi" },
         ],
         "order": [[1, 'asc']]
     } );
