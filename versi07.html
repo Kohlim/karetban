@@ -161,7 +161,22 @@ function format ( d ) {
 }
  
 $(document).ready(function() {
-    
+    $('#data-table thead tr').clone(true).appendTo( '#data-table thead' );
+        $('#data-table thead tr:eq(1) th').each( function (i) {
+            if(i === 2 || i === 3 || i === 4|| i === 5){ // Add inputs only to the first, third and fifth header cells
+            var title = $(this).text();
+            $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+
+            $( 'input', this ).on( 'keyup change', function () {
+                if ( table.column(i).search() !== this.value ) {
+                table
+                    .column(i)
+                    .search( this.value )
+                    .draw();
+                }
+            } );
+            }
+        });
     var table = $('#data-table').DataTable( {
         "ajax": "regarsip.json",
         dom: 'Bfrtip',
