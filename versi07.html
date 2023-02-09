@@ -25,6 +25,7 @@
             <a class="btn btn-danger" href="versi02.html" role="button">Retensi Keuangan</a>
             <a class="btn btn-primary" href="versi05.html" role="button">Retensi Kepegawaian</a>
             <a class="btn btn-danger" href="versi04.html" role="button">SKKAD</a>
+            <a class="btn btn-danger" href="versi07.html" role="button">Daftar Arsip</a>
             <hr/>
             
                 <div class="panel panel-default">
@@ -84,15 +85,21 @@
                                <th style="text-align: center;">No Urut </th>  
                                <th style="text-align: center;">Tahun Arsip</th> 
                                <th style="text-align: center;">Uraian</th> 
+                               <th style="text-align: center;">No Boks</th> 
+                               <th style="text-align: center;">Lokasi Simpan</th> 
+
                          
                           </tr>  
                      </thead> 
                      <tfoot>  
                           <tr>
-                               <th></th>
-                               <th style="text-align: center;">No Urut </th>  
-                               <th style="text-align: center;">Tahun Arsip</th> 
-                               <th style="text-align: center;">Uraian</th> 
+                            <th></th>
+                            <th style="text-align: center;">No Urut </th>  
+                            <th style="text-align: center;">Tahun Arsip</th> 
+                            <th style="text-align: center;">Uraian</th> 
+                            <th style="text-align: center;">No Boks</th> 
+                            <th style="text-align: center;">Lokasi Simpan</th> 
+ 
                           </tr> 
                      </tfoot>  
                 </table>
@@ -103,8 +110,8 @@
           <footer class="page-footer font-small blue">
 
             <!-- Copyright -->
-            <div class="footer-copyright text-center py-3">© 2020-2021 Copyright:
-              <a href="https://pom.go.id"> Loka POM di Kabupaten Tulang Bawang</a>
+            <div class="footer-copyright text-center py-3">© 2023 Paman Gembul:
+              <a href="https://kohlim.github.io/karetban/"> online </a>
             </div>
             <!-- Copyright -->
 
@@ -138,16 +145,8 @@ function format ( d ) {
             '<td>'+d.norak+'</td>'+
         '</tr>'+
         '<tr>'+
-            '<td>Lokasi Simpan</td>'+
-            '<td>'+d.lokassimpan+'</td>'+
-        '</tr>'+
-        '<tr>'+
             '<td>Jumlah</td>'+
             '<td>'+d.jumlah+'</td>'+
-        '</tr>'+
-        '<tr>'+
-            '<td>No Boks</td>'+
-            '<td>'+d.nobox+'</td>'+
         '</tr>'+
         '<tr>'+
             '<td>Retensi Aktif</td>'+
@@ -161,7 +160,7 @@ function format ( d ) {
 }
  
 $(document).ready(function() {
-    $('#data-table thead tr').clone(true).appendTo( '#data-table thead' );
+        $('#data-table thead tr').clone(true).appendTo( '#data-table thead' );
         $('#data-table thead tr:eq(1) th').each( function (i) {
             if(i === 2 || i === 3 || i === 4|| i === 5){ // Add inputs only to the first, third and fifth header cells
             var title = $(this).text();
@@ -177,6 +176,8 @@ $(document).ready(function() {
             } );
             }
         });
+   
+   
     var table = $('#data-table').DataTable( {
         "ajax": "regarsip.json",
         dom: 'Bfrtip',
@@ -199,11 +200,13 @@ $(document).ready(function() {
             { "data": "nourut" },
             { "data": "tahunarsip" },
             { "data": "uraian" },
+            { "data": "nobox" },
+            { "data": "lokassimpan" },
            
         ],
         "order": [[1, 'asc']]
     } );
-     
+      
     // Add event listener for opening and closing details
     $('#data-table tbody').on('click', 'td.details-control', function () {
         var tr = $(this).closest('tr');
